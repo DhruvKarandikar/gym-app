@@ -4,6 +4,7 @@ function App() {
 
   return (
       <div>
+        <h1>GYM SET GO</h1>
         <MainPageApp />
       </div>
   );
