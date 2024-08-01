@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { data, data2, data3 } from './data';
 import Select from 'react-select';
+import "./showTable.css";
 
 
 const exerciseOptions = data3.exerciseName.sort().map(exercise => ({
@@ -84,7 +85,7 @@ function UpdateTableShow({date}) {
     };
     
     return(
-        <div>
+        <div className='main-body-update-workout'>
             <form onSubmit={saveData}>
                 <div className='update-workout-container'>
                     <h2>Update Workout</h2>

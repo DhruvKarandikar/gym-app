@@ -3,166 +3,193 @@ body {
     color: white;
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding-left: 20rem;
+    padding-left: 2rem;
 }
 
-.main-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+.main-body {
+    padding-top: 5rem;
+    padding-left: 5rem;
+    display: flex; /* Added */
+    flex-direction: column; /* Added */
+    align-items: center; /* Added */
 }
 
+.main-body h2 {
+    text-align: center;
+}
 
+.main-button {
+    color: rgb(1, 1, 71);
+    text-align: center; /* Added */
+    margin-bottom: 20px; /* Added */
+}
 
-.previous-workout-container, .update-workout-container {
-    background-color: rgb(14, 14, 14);
-    padding: 20px;
+.click-button {
+    background-color: rgb(0, 10, 145);
+    text-decoration-style: solid;
+    width: 300px;
+    height: 50px;
     border-radius: 10px;
+    font-size: larger;
+    font-weight: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px 0; /* Added */
 }
 
-.previous-workout-container {
-    margin-right: 20px;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
 }
 
-.content {
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: #1e1e2f;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    z-index: 1001;
+}
+
+.modal-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10rem;
+    flex-direction: column;
 }
 
-.scrollableBar {
-    max-height: 300px;
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.date-picker {
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    pointer-events: none;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.save-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-button:hover, .cancel-button:hover {
+    opacity: 0.8;
+}
+
+
+.table-container {
+    max-height: 400px; 
     overflow-y: auto;
-    width: 100%;
+    position: relative;
+    flex: 1; /* Added */
 }
 
-.ScrollBarTable {
+.workout-prev-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin-top: 20px;
+    text-align: center;
 }
 
-.ScrollBarTable th {
-    padding: 10px;
+.workout-prev-table thead {
     position: sticky;
-    border: none;
-    border-bottom: 1px solid #666;
-    text-align: center;
+    top: 0;
+    background-color: #2b2b2b; 
     z-index: 1;
 }
 
-.ScrollBarTable td {
+.workout-prev-table th, .workout-prev-table td {
     padding: 10px;
-    border-left: none;
-    border-right: none;
     text-align: center;
+    border: none
 }
 
-.table-row:hover {
-    background-color: #555;
+.workout-prev-table tbody tr {
     cursor: pointer;
 }
 
-.selected {
-    background-color: grey;
+.workout-prev-table tbody tr:hover {
+    background-color: #333;
 }
 
-.update-workout-container {
+.workout-prev-table tbody .selected {
+    background-color: #555;
+}
+
+.content-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+}
+
+.previous-workouts {
     flex: 1;
-
 }
 
-.update-workout-table {
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-top: 10px;
-    width: 100%;
-    
-}
-
-.update-workout-table th {
-    padding: 10px;
-    border: 1px solid #666;
-    text-align: center;
-}
-
-.update-workout-table td {
-    padding: 10px;
-    border-left: 1px solid #666;
-    border-right: 1px solid #666;
-    text-align: center;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #888;
-    border: none;
-    border-radius: 5px;
-    color: whitesmoke;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-}
-
-button:hover {
-    background-color: grey;
-}
-
-input[type="text"], input[type="number"], input[type="date"], select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #666;
-    background-color: #555;
-    color: whitesmoke; 
-}
-
-input[type="text"]::placeholder, input[type="number"]::placeholder, input[type="date"]::placeholder, select {
-    color: grey;
-}
-
-form {
+.right-panel {
+    flex: 1;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.update-container, .progress-container {
     width: 100%;
-}
-
-.css-yk16xz-control,
-.css-1pahdxg-control {
-    min-height: 45px;
-    border-radius: 4px;
-}
-
-.css-1uccc91-singleValue {
-    padding: 8px 0;
-}
-
-.css-1okebmr-indicatorSeparator {
-    display: none;
-}
-
-.css-1wa3eu0-placeholder {
-    padding: 8px 0;
-}
-
-
-.add-date-container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.UpdateScrollableBar {
-    max-height: 300px;
-    overflow-y: auto;
-    width: 100%;
-}
-
-#UpdateScrollBarTable {
-    width: 100%;
-    border-collapse: collapse;
 }
