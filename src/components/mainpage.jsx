@@ -1,4 +1,4 @@
-import { useState, useRef  } from 'react';
+import { useState, useRef, useEffect  } from 'react';
 import { data, data2 } from './data';
 import moment from 'moment-timezone';
 import UpdateTableShow from "./showTable";
@@ -14,17 +14,15 @@ function MainPageApp() {
     const [selectedDate, setselectedDate] = useState("");
     const [newDate, setNewDate] = useState(new Date());
     const datePickerRef = useRef(null);
-    const [progressTracker, setProgressTracker] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    useEffect(() => {
+        Modal.setAppElement('#root');
+      }, []);
 
     const handleUpdateWorkout = (date) => {
         setselectedDate(date);
         setShowUpdateWorkout(true);
-    };
-
-    const popTracker = (e) => {
-        e.preventDefault()
-        setProgressTracker(true);
     };
 
     const openModal = () => {
@@ -52,15 +50,14 @@ function MainPageApp() {
             <div className='main-button'>
                 <button className='click-button' onClick={openModal}>ADD WORKOUT PLAN</button>
                 <br></br>
-                <br></br>
-                <button className='click-button' onClick={popTracker}>PROGRESS</button> 
+                <br></br> 
             </div>
 
             <div className='content-wrapper'>
                 <div className='previous-workouts'>
                     <h2>Your Previous Workouts</h2>
                 
-                    <div className='table-container'>
+                    <div className='table'>
                         <table className='workout-prev-table'>
                             <thead>
                                 <tr>
@@ -86,22 +83,23 @@ function MainPageApp() {
                         </table>
                     </div>
                 </div>
+                <div className='right-panel'>
+
+                    {showUpdateWorkout && (
+                        <div className='update-container'>
+                            <UpdateTableShow date={selectedDate}  />
+                        </div>
+                    )}
+
+                </div>
             </div>
             
 
-            <div className='right-panel'>
-
-                {showUpdateWorkout && (
-                    <div className='update-container'>
-                        <UpdateTableShow date={selectedDate}  />
-                    </div>
-                )}
-
-                {progressTracker && (
-                    <div className='progress-container'>
-                        <ShowProgressTracker data={data2.dates} />
-                    </div>
-                )}
+            <div className='progress-area'>
+                <h3>Progress</h3>
+                <div className='progress-container'>
+                    <ShowProgressTracker filters={null}/>
+                </div>
             </div>
 
             <Modal

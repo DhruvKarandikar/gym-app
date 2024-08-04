@@ -77,7 +77,6 @@ function UpdateTableShow({date}) {
             exercises: [],
         });
         console.log(formData);
-        //if (onClose) onClose();
     };
 
     const handleSelectChange = (index, selectedOption) => {

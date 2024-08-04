@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: black;
+    background-color: rgba(58, 58, 58, 0.918);
     color: white;
 }
 
@@ -17,5 +17,26 @@ h4 {
     top: 5rem;
     left: 6px;
     padding-left: 1.3rem;
-    
 }
+
+.navbar-brand {
+    color: white !important;
+}
+
+.navbar-nav > li > a {
+    color: white !important;
+}
+
+.navbar-default {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.navbar-default .navbar-brand {
+    color: white !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff !important;
+}
+

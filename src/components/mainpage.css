@@ -9,9 +9,6 @@ body {
 .main-body {
     padding-top: 5rem;
     padding-left: 5rem;
-    display: flex; /* Added */
-    flex-direction: column; /* Added */
-    align-items: center; /* Added */
 }
 
 .main-body h2 {
@@ -20,8 +17,8 @@ body {
 
 .main-button {
     color: rgb(1, 1, 71);
-    text-align: center; /* Added */
-    margin-bottom: 20px; /* Added */
+    text-align: left; 
+    margin-bottom: 20px;
 }
 
 .click-button {
@@ -33,7 +30,7 @@ body {
     font-size: larger;
     font-weight: 10px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 10px 0; /* Added */
+    margin: 10px 0;
 }
 
 .overlay {
@@ -41,6 +38,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    display: grid;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 1000;
@@ -108,7 +106,7 @@ body {
 }
 
 .save-button {
-    background-color: #28a745;
+    background-color: #00ff3c;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -117,7 +115,7 @@ body {
 }
 
 .cancel-button {
-    background-color: #dc3545;
+    background-color: #ff0019;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -130,11 +128,11 @@ body {
 }
 
 
-.table-container {
-    max-height: 400px; 
+.table {
+    max-height: 400px;
+    text-align: left; 
     overflow-y: auto;
     position: relative;
-    flex: 1; /* Added */
 }
 
 .workout-prev-table {
@@ -143,7 +141,7 @@ body {
     background-color: #1e1e1e;
     color: #ffffff;
     margin-top: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .workout-prev-table thead {
@@ -173,21 +171,16 @@ body {
 
 .content-wrapper {
     display: flex;
-    width: 100%;
-    max-width: 1200px;
     justify-content: space-between;
 }
 
 .previous-workouts {
-    flex: 1;
+    align-items: start;
 }
 
 .right-panel {
-    flex: 1;
     margin-left: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 .update-container, .progress-container {

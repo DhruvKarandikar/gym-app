@@ -581,4 +581,41 @@ const data3 = {
     ]
 }
 
-export {data, data2, data3};
+const data4 = {
+    data: [
+    {
+        "date": "2024-07-27",
+        "calories": 256,
+    },
+    {
+        "date": "2024-07-28",
+        "calories": 386,
+    },
+    {
+        "date": "2024-07-29",
+        "calories": 382,
+    },
+    {
+        "date": "2024-07-30",
+        "calories": 455,
+    },
+    {
+        "date": "2024-07-31",
+        "calories": 355,
+    },
+    {
+        "date": "2024-08-01",
+        "calories": 500,
+    },
+    {
+        "date": "2024-08-02",
+        "calories": 200,
+    },
+    {
+        "date": "2024-08-03",
+        "calories": 320,
+    },
+    ]
+}
+
+export {data, data2, data3, data4};
